@@ -1,0 +1,14 @@
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym.csprojAssemblyReference.cache
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\App.g.cs
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym_MarkupCompile.cache
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\MainWindow.g.cs
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym_MarkupCompile.lref
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\bin\Debug\YOLO_Gym.exe.config
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\bin\Debug\YOLO_Gym.exe
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\bin\Debug\YOLO_Gym.pdb
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\MainWindow.baml
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym.g.resources
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym.Properties.Resources.resources
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym.csproj.GenerateResource.cache
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym.exe
+C:\Users\Renars\source\repos\YOLO_Gym\YOLO_Gym\obj\Debug\YOLO_Gym.pdb

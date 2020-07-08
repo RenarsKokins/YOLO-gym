@@ -1,0 +1,86 @@
+﻿<Window x:Class="YOLO_Gym.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:YOLO_Gym"
+        mc:Ignorable="d"
+        Title="YOLO Gym" Height="600" Width="810" MinHeight="600" MinWidth="810" Background="#FF212127" WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FFAC4444" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="#FF40992D" />
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="#FFD6802B" />
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <TabControl Margin="10" Padding="0">
+            <TabItem Header="Train/test">
+                <Grid Background="#FF17171B">
+                    <TextBlock x:Name="lblTest" HorizontalAlignment="Left" Margin="10,429,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="330"/>
+                    <TextBlock x:Name="lblOutputLabel" HorizontalAlignment="Left" Margin="10,461,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="330"/>
+                    <TextBlock x:Name="lblAccuracy" HorizontalAlignment="Left" Margin="10,493,0,0" TextWrapping="Wrap" Text="None" VerticalAlignment="Top" Foreground="White" FontSize="20" Width="330"/>
+                    <Button Content="Load data" HorizontalAlignment="Left" Margin="640,10,0,0" VerticalAlignment="Top" Width="120" Background="White" Height="30"/>
+
+                    <Button Content="test" HorizontalAlignment="Left" Margin="640,45,0,0" VerticalAlignment="Top" Width="120" Background="White" Height="30"/>
+                    <Button Content="train" HorizontalAlignment="Left" Margin="640,80,0,0" VerticalAlignment="Top" Width="120" Background="White" Height="30"/>
+                    <Image x:Name="pictureBox1" HorizontalAlignment="Left" Height="416" Margin="10,10,0,0" VerticalAlignment="Top" Width="416" Grid.ColumnSpan="2" RenderOptions.BitmapScalingMode="NearestNeighbor" Source="no-graph.png"/>
+
+                    <TextBox x:Name="c_val" HorizontalAlignment="Right" Height="23" Margin="0,412,10,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="120" Background="#FF212127" Foreground="White" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="g_val" HorizontalAlignment="Right" Height="23" Margin="0,439,10,0" TextWrapping="Wrap" Text="0.005" VerticalAlignment="Top" Width="120" Background="#FF212127" Foreground="White" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="iter_val" HorizontalAlignment="Right" Height="23" Margin="0,466,10,0" TextWrapping="Wrap" Text="20000" VerticalAlignment="Top" Width="120" Background="#FF212127" Foreground="White" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="double_val" HorizontalAlignment="Right" Height="23" Margin="0,493,10,0" TextWrapping="Wrap" Text="1e-6" VerticalAlignment="Top" Width="120" Background="#FF212127" Foreground="White" VerticalContentAlignment="Center"/>
+
+                    <Label Content="C value:" HorizontalAlignment="Right" Margin="0,409,158,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Label Content="Gamma:" HorizontalAlignment="Right" Margin="0,436,158,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Label Content="Max iterations:" HorizontalAlignment="Right" Margin="0,463,158,0" VerticalAlignment="Top" Foreground="White"/>
+                    <Label Content="Double float:" HorizontalAlignment="Right" Margin="0,490,158,0" VerticalAlignment="Top" Foreground="White"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Label training/testing data">
+                <Grid Background="#FF17171B">
+                    <Grid x:Name="image_grid" Margin="10,10,354,99" HorizontalAlignment="Left">
+                        <Image x:Name="image_box" Source="no-image.png" VerticalAlignment="Top" />
+                        <Canvas x:Name="canvas" Background="Transparent" MouseMove="mouse_Move" MouseLeftButtonDown="mouse_Down" MouseLeftButtonUp="mouse_Up" Panel.ZIndex="1" MouseLeave="mouse_Out" MouseWheel="mouse_Wheel" MouseRightButtonUp="mouse_Right_Up" MouseRightButtonDown="mouse_Right_Down" Cursor="Cross" />
+                    </Grid>
+                    <Button Content="Previous image" HorizontalAlignment="Left" Margin="10,0,0,64" Width="120" Background="White" Click="previous_Image" VerticalAlignment="Bottom" Height="30"/>
+                    <Button Content="Save label data" HorizontalAlignment="Left" Margin="158,0,502,64" Width="120" Background="White" VerticalAlignment="Bottom" Height="30" IsDefault="True" Click="save_Box"/>
+                    <Button Content="Next image" HorizontalAlignment="Left" Margin="306,0,0,64" Width="120" Background="White" Click="next_Image" VerticalAlignment="Bottom" Height="30"/>
+                    <Button Content="Next unlabled image" HorizontalAlignment="Left" Margin="306,0,0,10" Width="120" Background="White" Click="next_Unlabled_Image" VerticalAlignment="Bottom" Height="30"/>
+
+                    <Button Content="Load images" HorizontalAlignment="Right" Margin="0,10,11,0" VerticalAlignment="Top" Width="120" Background="White" Height="30" Click="loadImages" Focusable="False"/>
+                    <Button Content="Load class names" HorizontalAlignment="Right" Margin="0,45,11,0" VerticalAlignment="Top" Width="120" Background="White" Height="30" Click="loadClasses" Focusable="False"/>
+
+                    <Button Content="Delete image" HorizontalAlignment="Right" Margin="0,0,11,64" VerticalAlignment="Bottom" Width="120" Background="White" Height="30" Click="delete_Image" Focusable="False"/>
+                    <Button Content="Create train.txt file" HorizontalAlignment="Right" Margin="0,0,11,10" VerticalAlignment="Bottom" Width="120" Background="White" Height="30" Click="create_Train_File" Focusable="False"/>
+
+                    <Label Content="Image" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Foreground="White" Padding="5,0,5,5"/>
+                    <TextBox x:Name="img_select_box" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="53,0,0,10" VerticalAlignment="Bottom" Foreground="White" Width="42" Background="#FF101013" Height="21" KeyUp="update_Current_Image_Index"/>
+                    <Label x:Name="img_count_text" Content="out of 0" HorizontalAlignment="Left" Margin="95,0,0,10" Foreground="White" Padding="5,0,5,5" VerticalAlignment="Bottom"/>
+
+                    <ListView x:Name="b_box" HorizontalAlignment="Right" Margin="0,80,10,0" Width="330" Background="#FFEEEEEE" BorderBrush="{x:Null}" Foreground="Black" HorizontalContentAlignment="Center" VerticalContentAlignment="Bottom" ScrollViewer.HorizontalScrollBarVisibility="Auto" UseLayoutRounding="True" SelectionChanged="box_Selection" Height="140" VerticalAlignment="Top">
+                        <ListView.View>
+                            <GridView x:Name="yes" AllowsColumnReorder="False" >
+                                <GridViewColumn x:Name="grid_Name" Header="Name" DisplayMemberBinding="{Binding Name}" Width="55"/>
+                                <GridViewColumn x:Name="grid_Type" Header="Type" DisplayMemberBinding="{Binding Type}" Width="55"/>
+                                <GridViewColumn x:Name="grid_x" Header=" X " DisplayMemberBinding="{Binding X}" Width="50"/>
+                                <GridViewColumn x:Name="grid_y" Header=" Y " DisplayMemberBinding="{Binding Y}" Width="50"/>
+                                <GridViewColumn x:Name="grid_w" Header=" W " DisplayMemberBinding="{Binding W}" Width="55"/>
+                                <GridViewColumn x:Name="grid_h" Header=" H " DisplayMemberBinding="{Binding H}" Width="55"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Label Content="Bounding boxes:" HorizontalAlignment="Right" Margin="0,51,191,0" Width="149" Foreground="White" FontSize="18" Padding="0" Height="24" VerticalAlignment="Top"/>
+
+                    <ListBox x:Name="c_box" HorizontalAlignment="Right" Margin="0,258,11,99" Width="329" BorderBrush="{x:Null}" Background="#FF101013" Foreground="White" SelectionChanged="class_Changed" IsTextSearchEnabled="False" VerticalContentAlignment="Top" IsSynchronizedWithCurrentItem="False"/>
+                    <Label Content="Select class for box:" HorizontalAlignment="Right" Margin="0,225,11,0" Width="329" Foreground="White" FontSize="18" Padding="0,5,0,0" Height="29" VerticalAlignment="Top"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
