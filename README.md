@@ -3,12 +3,21 @@ Yolo gym is used to label images so that they can be used to train neural networ
 
 # Controls
 `a` - previous image
+
 `d` - next image
+
 `s` - save label in image folder
+
 `z` - clear last marking
+
 `c` - clear all markings
+
 `del` - clear selected marking (in bounding boxes tab)
+
 `1-9` - select corresponding label
+
 `scrollwheel` - select next/previous label
+
 `left mouse` - draw marking
+
 `right mouse` - move marking (mouse has to be on a marking)

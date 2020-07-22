@@ -207,6 +207,16 @@ namespace YOLO_Gym
             catch { }
         }
 
+        private void reload_Image(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                update_Image(null, null);
+            }
+            catch { }
+
+        }
+
         private void update_Image(object sender, RoutedEventArgs e) 
         {
             System.Drawing.Image img = System.Drawing.Image.FromFile(img_name[current_image]);
@@ -223,7 +233,7 @@ namespace YOLO_Gym
         {
             File.Delete(img_name[current_image]);
             img_name.RemoveAt(current_image);
-            next_Image(null, null);
+            reload_Image(null, null);
         }
 
         private void update_Current_Image_Index(object sender, System.Windows.Input.KeyEventArgs e)
